@@ -169,7 +169,8 @@ RUN bash -x /src/build.sh \
       --enable-encoder=libopus \
       --enable-muxer=ogg \
       --enable-muxer=caf \
-      --enable-libopus 
+      --enable-libopus  \
+      --enable-postproc
 
 
 # Build ffmpeg.wasm
