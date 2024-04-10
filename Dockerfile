@@ -165,7 +165,14 @@ RUN bash -x /src/build.sh \
 #      --enable-libfribidi \
 #      --enable-libass \
 #      --enable-libzimg 
-      --disable-everything \
+      --disable-encoders \
+      --disable-decoders \
+      --disable-muxers \
+      --disable-parsers \
+      --disable-bsfs \
+      --disable-protocols \
+      --disable-devices \
+      --disable-demuxers \
       --enable-libopus  \
       --enable-protocol=file \
       --enable-demuxer=wav \
@@ -176,6 +183,9 @@ RUN bash -x /src/build.sh \
       --enable-decoder=libmp3lame \
       --enable-decoder=libvorbis \
       --enable-decoder=pcm_s16le \
+      --enable-decoder=wav \
+      --enable-decoder=aac \
+      --enabler-parser=aac \
       --enable-filter=anull \
       --enable-filter=aresample \
       --enable-encoder=pcm_s16le \
