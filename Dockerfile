@@ -170,7 +170,8 @@ RUN bash -x /src/build.sh \
       --enable-muxer=ogg \
       --enable-muxer=caf \
       --enable-libopus  \
-      --enable-protocol=file
+      --enable-protocol=file \
+      --enable-demuxer=wav
 
 
 # Build ffmpeg.wasm
