@@ -170,6 +170,7 @@ RUN bash -x /src/build.sh \
       --enable-muxer=ogg \
       --enable-muxer=caf \
       --enable-muxer=wav \
+      --enable-muxer=tee \
       --enable-libopus  \
       --enable-protocol=file \
       --enable-demuxer=wav \
