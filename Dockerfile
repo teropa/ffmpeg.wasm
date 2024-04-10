@@ -166,11 +166,6 @@ RUN bash -x /src/build.sh \
 #      --enable-libass \
 #      --enable-libzimg 
       --disable-everything \
-      --enable-encoder=libopus \
-      --enable-muxer=ogg \
-      --enable-muxer=caf \
-      --enable-muxer=wav \
-      --enable-muxer=tee \
       --enable-libopus  \
       --enable-protocol=file \
       --enable-demuxer=wav \
@@ -180,7 +175,13 @@ RUN bash -x /src/build.sh \
       --enable-decoder=libopus \
       --enable-decoder=libmp3lame \
       --enable-decoder=libvorbis \
-      --enable-encoder=pcm_s16le
+      --enable-decoder=pcm_s16le \
+      --enable-encoder=pcm_s16le \
+      --enable-encoder=libopus \
+      --enable-muxer=ogg \
+      --enable-muxer=caf \
+      --enable-muxer=wav \
+      --enable-muxer=tee
 
 
 # Build ffmpeg.wasm
