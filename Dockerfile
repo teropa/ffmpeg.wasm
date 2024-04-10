@@ -140,6 +140,7 @@ ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 #COPY --from=x265-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=libvpx-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=lame-builder $INSTALL_DIR $INSTALL_DIR
+COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=theora-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
