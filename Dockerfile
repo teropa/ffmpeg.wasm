@@ -176,6 +176,8 @@ RUN bash -x /src/build.sh \
       --enable-decoder=libmp3lame \
       --enable-decoder=libvorbis \
       --enable-decoder=pcm_s16le \
+      --enable-filter=anull \
+      --enable-filter=aresample \
       --enable-encoder=pcm_s16le \
       --enable-encoder=libopus \
       --enable-muxer=ogg \
