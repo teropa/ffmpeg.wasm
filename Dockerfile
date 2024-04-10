@@ -178,7 +178,8 @@ RUN bash -x /src/build.sh \
       --enable-demuxer=mp3 \
       --enable-decoder=libopus \
       --enable-decoder=libmp3lame \
-      --enable-decoder=libvorbis
+      --enable-decoder=libvorbis \
+      --enable-encoder=pcm_s16le
 
 
 # Build ffmpeg.wasm
