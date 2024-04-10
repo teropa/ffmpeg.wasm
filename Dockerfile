@@ -65,8 +65,8 @@ RUN bash -x /src/build.sh
 
 # Build opus
 FROM emsdk-base AS opus-builder
-ENV OPUS_BRANCH=v1.3.1
-ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
+ENV OPUS_BRANCH=v1.4
+ADD https://github.com/xiph/opus.git#$OPUS_BRANCH /src
 COPY build/opus.sh /src/build.sh
 RUN bash -x /src/build.sh
 
