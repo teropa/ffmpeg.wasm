@@ -187,7 +187,7 @@ ENV FFMPEG_LIBS \
 #      -lvorbis \
 #      -lvorbisenc \
 #      -lvorbisfile \
-      -lopus \
+      -lopus
 #      -lz \
 #      -lwebpmux \
 #      -lwebp \
