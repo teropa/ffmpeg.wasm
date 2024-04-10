@@ -42,11 +42,11 @@ RUN apt-get update && \
 #RUN bash -x /src/build.sh
 
 # Build lame
-#FROM emsdk-base AS lame-builder
-#ENV LAME_BRANCH=master
-#ADD https://github.com/ffmpegwasm/lame.git#$LAME_BRANCH /src
-#COPY build/lame.sh /src/build.sh
-#RUN bash -x /src/build.sh
+FROM emsdk-base AS lame-builder
+ENV LAME_BRANCH=master
+ADD https://github.com/ffmpegwasm/lame.git#$LAME_BRANCH /src
+COPY build/lame.sh /src/build.sh
+RUN bash -x /src/build.sh
 
 # Build ogg
 FROM emsdk-base AS ogg-builder
@@ -71,12 +71,12 @@ COPY build/opus.sh /src/build.sh
 RUN bash -x /src/build.sh
 
 # Build vorbis
-#FROM emsdk-base AS vorbis-builder
-#COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
-#ENV VORBIS_BRANCH=v1.3.3
-#ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
-#COPY build/vorbis.sh /src/build.sh
-#RUN bash -x /src/build.sh
+FROM emsdk-base AS vorbis-builder
+COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
+ENV VORBIS_BRANCH=v1.3.3
+ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
+COPY build/vorbis.sh /src/build.sh
+RUN bash -x /src/build.sh
 
 # Build zlib
 #FROM emsdk-base AS zlib-builder
@@ -143,7 +143,7 @@ ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=theora-builder $INSTALL_DIR $INSTALL_DIR
-#COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
+COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=libwebp-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
 #COPY --from=zimg-builder $INSTALL_DIR $INSTALL_DIR
@@ -156,7 +156,7 @@ RUN bash -x /src/build.sh \
 #      --enable-libx264 \
 #      --enable-libx265 \
 #      --enable-libvpx \
-#      --enable-libmp3lame \
+       --enable-libmp3lame \
 #      --enable-libtheora \
 #      --enable-libvorbis \
 #      --enable-zlib \
@@ -169,9 +169,16 @@ RUN bash -x /src/build.sh \
       --enable-encoder=libopus \
       --enable-muxer=ogg \
       --enable-muxer=caf \
+      --enable-muxer=wav \
       --enable-libopus  \
       --enable-protocol=file \
-      --enable-demuxer=wav
+      --enable-demuxer=wav \
+      --enable-demuxer=ogg \
+      --enable-demuxer=caf \
+      --enable-demuxer=mp3 \
+      --enable-decoder=libopus \
+      --enable-decoder=libmp3lame \
+      --enable-decoder=libvorbis
 
 
 # Build ffmpeg.wasm
@@ -184,12 +191,12 @@ ENV FFMPEG_LIBS \
 #      -lx264 \
 #      -lx265 \
 #      -lvpx \
-#      -lmp3lame \
+      -lmp3lame \
       -logg \
 #      -ltheora \
-#      -lvorbis \
+      -lvorbis \
 #      -lvorbisenc \
-#      -lvorbisfile \
+      -lvorbisfile \
       -lopus
 #      -lz \
 #      -lwebpmux \
