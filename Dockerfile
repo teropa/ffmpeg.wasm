@@ -185,7 +185,7 @@ RUN bash -x /src/build.sh \
       --enable-decoder=pcm_s16le \
       --enable-decoder=wav \
       --enable-decoder=aac \
-      --enabler-parser=aac \
+      --enable-parser=aac \
       --enable-filter=anull \
       --enable-filter=aresample \
       --enable-encoder=pcm_s16le \
