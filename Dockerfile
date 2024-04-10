@@ -170,7 +170,7 @@ RUN bash -x /src/build.sh \
       --enable-muxer=ogg \
       --enable-muxer=caf \
       --enable-libopus  \
-      --enable-postproc
+      --enable-protocol=file
 
 
 # Build ffmpeg.wasm
