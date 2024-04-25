@@ -183,6 +183,8 @@ RUN bash -x /src/build.sh \
       --enable-decoder=libmp3lame \
       --enable-decoder=libvorbis \
       --enable-decoder=pcm_s16le \
+      --enable-decoder=pcm_s24le \
+      --enable-decoder=pcm_s32le \
       --enable-decoder=wav \
       --enable-decoder=aac \
       --enable-parser=aac \
