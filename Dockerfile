@@ -179,6 +179,7 @@ RUN bash -x /src/build.sh \
       --enable-demuxer=ogg \
       --enable-demuxer=caf \
       --enable-demuxer=mp3 \
+      --enable-demuxer=aiff \
       --enable-decoder=libopus \
       --enable-decoder=libmp3lame \
       --enable-decoder=libvorbis \
