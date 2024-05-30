@@ -197,7 +197,8 @@ RUN bash -x /src/build.sh \
       --enable-muxer=ogg \
       --enable-muxer=caf \
       --enable-muxer=wav \
-      --enable-muxer=tee
+      --enable-muxer=tee \
+      --enable-muxer=null
 
 
 # Build ffmpeg.wasm
