@@ -187,6 +187,10 @@ RUN bash -x /src/build.sh \
       --enable-decoder=pcm_s24le \
       --enable-decoder=pcm_s32le \
       --enable-decoder=pcm_f32le \
+      --enable-decoder=pcm_s16be \
+      --enable-decoder=pcm_s24be \
+      --enable-decoder=pcm_s32be \
+      --enable-decoder=pcm_f32be \
       --enable-decoder=wav \
       --enable-decoder=aac \
       --enable-parser=aac \
