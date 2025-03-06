@@ -182,6 +182,7 @@ RUN bash -x /src/build.sh \
       --enable-demuxer=aiff \
       --enable-decoder=libopus \
       --enable-decoder=libmp3lame \
+      --enable-decoder=mp3 \
       --enable-decoder=libvorbis \
       --enable-decoder=pcm_s16le \
       --enable-decoder=pcm_s24le \
