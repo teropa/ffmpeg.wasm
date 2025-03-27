@@ -180,6 +180,7 @@ RUN bash -x /src/build.sh \
       --enable-demuxer=caf \
       --enable-demuxer=mp3 \
       --enable-demuxer=aiff \
+      --enable-demuxer=flac \
       --enable-decoder=libopus \
       --enable-decoder=libmp3lame \
       --enable-decoder=mp3 \
@@ -194,6 +195,7 @@ RUN bash -x /src/build.sh \
       --enable-decoder=pcm_f32be \
       --enable-decoder=wav \
       --enable-decoder=aac \
+      --enable-decoder=flac \
       --enable-parser=aac \
       --enable-filter=anull \
       --enable-filter=aresample \
